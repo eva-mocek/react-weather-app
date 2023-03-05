@@ -1,0 +1,18 @@
+.Search button {
+  display: inline;
+  background-color: white;
+  color: #3f474d;
+  border: solid 1px darkgrey;
+  transition: all 150ms ease-in-out;
+  margin-right: 6px;
+}
+
+.Search button:hover {
+  background-color: lightgray;
+}
+
+.Search .search-bar {
+  width: 60%;
+  border: solid 1px darkgrey;
+  margin-right: 6px;
+}

@@ -1,0 +1,18 @@
+.Forecast {
+  color: blueviolet;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.forecast-icon {
+  height: 35px;
+}
+
+.forecast-temp {
+  padding-bottom: 8px;
+}
+
+.forecast-description {
+  font-size: 12px;
+  text-transform: capitalize;
+}
