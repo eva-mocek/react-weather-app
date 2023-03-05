@@ -16,7 +16,7 @@ export default function Footer() {
       <br />
       See this project on{" "}
       <a
-        href="https://github.com/eva-mocek/SheCodesPlusWeatherApp"
+        href="https://github.com/eva-mocek/react-weather-app"
         target="_blank"
         rel="noreferrer"
       >
