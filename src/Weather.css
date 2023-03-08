@@ -1,0 +1,69 @@
+.Weather .form-styler {
+  margin-bottom: 20px;
+}
+
+.Weather .search-bar {
+  border: solid 1px darkgrey;
+  margin-right: 6px;
+}
+
+.Weather .btn {
+  display: inline;
+  color: #3f474d;
+  transition: all 150ms ease-in-out;
+}
+
+.Weather .btn:hover {
+  background-color: lightgray;
+}
+
+.Weather .current-btn {
+  margin-left: 6px;
+}
+
+.Weather i {
+  font-size: 40px;
+  padding-right: 20px;
+}
+
+.Weather {
+  margin-top: 30px;
+}
+
+.Weather .city {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 40px;
+  text-transform: capitalize;
+  padding-bottom: 20px;
+}
+
+.Weather .humid-wind {
+  text-align: right;
+}
+
+.Weather .date-time {
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+
+.Weather .temp-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Weather .temp-main .active {
+  font-weight: 400;
+  cursor: default;
+  color: #3f474d;
+}
+
+.Weather .temperature {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  text-align: right;
+  font-size: 60px;
+  padding: none;
+  padding: 0 10px 0 20px;
+}
