@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import "./Weather.css";
+import FormattedDateTime from "./FormattedDateTime";
 import clouds from "./clouds.png";
 
 export default function Weather(props) {
@@ -15,8 +16,7 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
-      date: "Sunday, March 5",
-      timestamp: "6:15pm",
+      date: new Date(response.data.dt * 1000),
       temperature: Math.round(response.data.main.temp),
       iconUrl: clouds,
     });
@@ -57,9 +57,7 @@ export default function Weather(props) {
         <div className="row">
           <div className="col-6 temp-row">
             <div className="date-time">
-              <span id="current-date">{weatherData.date}</span>
-              <br />
-              Last updated at {weatherData.timestamp}
+              <FormattedDateTime date={weatherData.date} />
             </div>
           </div>
           <div className="col-6">
