@@ -30,6 +30,10 @@
   margin-top: 30px;
 }
 
+.Weather canvas {
+  margin-top: 5px;
+}
+
 .Weather .city {
   font-weight: 200;
   font-size: 60px;
