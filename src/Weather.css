@@ -69,3 +69,8 @@
   padding: none;
   padding: 0 10px 0 20px;
 }
+
+.Weather .temp-units {
+  display: flex;
+  justify-content: start;
+}
