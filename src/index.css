@@ -5,6 +5,10 @@ body {
   font-weight: 400;
   font-size: 15px;
   color: #3f474d;
+  /* background-image: url("background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  */
 }
 
 a {
@@ -12,3 +16,5 @@ a {
   text-decoration: none;
   font-weight: 600;
 }
+
+/* add @media so background doesn't shrink beyond a certain width on small screens */
