@@ -18,6 +18,7 @@
 .Weather .btn {
   display: inline;
   color: #3f474d;
+  border: solid 1px darkgrey;
   transition: all 150ms ease-in-out;
 }
 

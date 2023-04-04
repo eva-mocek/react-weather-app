@@ -5,10 +5,11 @@ body {
   font-weight: 400;
   font-size: 15px;
   color: #3f474d;
-  /* background-image: url("background.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  */
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(254, 255, 165) 0%,
+    rgb(255, 232, 182) 90%
+  );
 }
 
 a {
@@ -16,5 +17,3 @@ a {
   text-decoration: none;
   font-weight: 600;
 }
-
-/* add @media so background doesn't shrink beyond a certain width on small screens */
