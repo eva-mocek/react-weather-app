@@ -1,12 +1,17 @@
 import React from "react";
 import ForecastDays from "./ForecastDays";
 import ForecastIcon from "./ForecastIcon";
+import ForecastTemp from "./ForecastTemp";
 
 export default function ForecastData(props) {
   let day = props.data.time;
   let iconCode = props.data.condition.icon;
-  let tempMax = Math.round(props.data.temperature.maximum);
-  let tempMin = Math.round(props.data.temperature.minimum);
+  let forecastData = {
+    celsiusMax: Math.round(props.data.temperature.maximum),
+    celsiusMin: Math.round(props.data.temperature.minimum),
+    fahrenheitMax: Math.round((props.data.temperature.maximum * 9) / 5 + 32),
+    fahrenheitMin: Math.round((props.data.temperature.minimum * 9) / 5 + 32),
+  };
 
   return (
     <div className="Forecast-day">
@@ -17,8 +22,7 @@ export default function ForecastData(props) {
         <ForecastIcon code={iconCode} size={40} />
       </div>
       <div>
-        <span className="Forecast-temp-max">{tempMax}°</span>
-        <span className="Forecast-temp-min">{tempMin}°</span>
+        <ForecastTemp data={forecastData} units={props.units} />
       </div>
     </div>
   );

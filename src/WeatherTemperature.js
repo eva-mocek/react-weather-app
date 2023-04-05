@@ -1,9 +1,6 @@
 import React from "react";
 
 export default function WeatherTemperature({ unit, celsius, fahrenheit }) {
-  console.log(unit);
-  console.log(celsius);
-  console.log(fahrenheit);
   if (unit === "celsius") {
     return (
       <span className="temp-units">

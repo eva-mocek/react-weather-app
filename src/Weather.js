@@ -8,6 +8,7 @@ import Forecast from "./Forecast";
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [forecastUnits, setForecastUnits] = useState("metric");
 
   function handleResponse(response) {
     setWeatherData({
@@ -18,6 +19,7 @@ export default function Weather(props) {
       wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
       unit: "celsius",
+      units: "metric",
       celsius: Math.round(response.data.main.temp),
       fahrenheit: Math.round((response.data.main.temp * 9) / 5 + 32),
       iconCode: response.data.weather[0].icon,
@@ -41,27 +43,22 @@ export default function Weather(props) {
   }
 
   function changeUnits(event) {
-    console.log("beforeChange");
-    console.log(weatherData);
-    console.log();
     event.preventDefault();
     if (weatherData.unit === "celsius") {
-      console.log("changing to F");
       const newData = {
         ...weatherData,
         unit: "fahrenheit",
       };
       setWeatherData(newData);
+      setForecastUnits("imperial");
     } else {
-      console.log("changing to C");
       const newData = {
         ...weatherData,
         unit: "celsius",
       };
       setWeatherData(newData);
+      setForecastUnits("metric");
     }
-    console.log("afterChange");
-    console.log(weatherData);
   }
 
   if (weatherData.ready) {
@@ -89,7 +86,7 @@ export default function Weather(props) {
 
         <WeatherInfo data={weatherData} />
         <hr />
-        <Forecast name={weatherData.name} />
+        <Forecast name={weatherData.name} units={forecastUnits} />
       </div>
     );
   } else {
