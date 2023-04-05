@@ -17,7 +17,9 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
-      temperature: Math.round(response.data.main.temp),
+      unit: "celsius",
+      celsius: Math.round(response.data.main.temp),
+      fahrenheit: Math.round((response.data.main.temp * 9) / 5 + 32),
       iconCode: response.data.weather[0].icon,
     });
   }
@@ -38,6 +40,30 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+  function changeUnits(event) {
+    console.log("beforeChange");
+    console.log(weatherData);
+    console.log();
+    event.preventDefault();
+    if (weatherData.unit === "celsius") {
+      console.log("changing to F");
+      const newData = {
+        ...weatherData,
+        unit: "fahrenheit",
+      };
+      setWeatherData(newData);
+    } else {
+      console.log("changing to C");
+      const newData = {
+        ...weatherData,
+        unit: "celsius",
+      };
+      setWeatherData(newData);
+    }
+    console.log("afterChange");
+    console.log(weatherData);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -55,8 +81,9 @@ export default function Weather(props) {
           <input type="submit" value="Search" className="btn btn-light" />
           <input
             type="submit"
-            value="Current"
+            value="Change Units"
             className="btn btn-light current-btn"
+            onClick={changeUnits}
           />
         </form>
 
