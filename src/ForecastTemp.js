@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ForecastTemp(props) {
-  console.log(props);
   if (props.units === "metric") {
     return (
       <div className="ForecastTemp">

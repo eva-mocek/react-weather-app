@@ -9,7 +9,7 @@ export default function Footer() {
       <a
         href="https://www.linkedin.com/in/eva-mocek/"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         Eva Mocek
       </a>
@@ -18,7 +18,7 @@ export default function Footer() {
       <a
         href="https://github.com/eva-mocek/react-weather-app"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         GitHub
       </a>
