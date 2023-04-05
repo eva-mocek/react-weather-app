@@ -1,5 +1,5 @@
 body {
-  margin: 30px auto;
+  margin: 60px auto 30px;
   width: 70%;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
@@ -10,6 +10,8 @@ body {
     rgb(254, 255, 165) 0%,
     rgb(255, 232, 182) 90%
   );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {

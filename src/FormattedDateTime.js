@@ -38,12 +38,12 @@ export default function FormattedDateTime(props) {
     minutes = `0${minutes}`;
   }
   let amPm = "am";
-  if (props.date.getHours() > 12) {
+  if (props.date.getHours() >= 12) {
     amPm = "pm";
   }
 
   return (
-    <div>
+    <div className="FormattedDateTime">
       <div>
         {days[day]}, {months[month]} {date}
       </div>

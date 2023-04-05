@@ -65,7 +65,7 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         <form
-          className="form-styler d-flex justify-contents-between"
+          className="form-styler form-control-sm d-flex justify-contents-between"
           onSubmit={handleSubmit}
         >
           <input
@@ -76,16 +76,25 @@ export default function Weather(props) {
             onChange={handleChangeCity}
           />
           <input type="submit" value="Search" className="btn btn-light" />
+
           <input
             type="submit"
             value="Change Units"
-            className="btn btn-light current-btn"
+            className="btn btn-light unit-btn d-none d-sm-flex"
             onClick={changeUnits}
           />
         </form>
 
+        <input
+          type="submit"
+          value="Change units"
+          className="btn link unit-link d-block d-sm-none"
+          onClick={changeUnits}
+        />
+
         <WeatherInfo data={weatherData} />
         <hr />
+        <div className="forecast-heading d-block d-sm-none">Forecast</div>
         <Forecast name={weatherData.name} units={forecastUnits} />
       </div>
     );

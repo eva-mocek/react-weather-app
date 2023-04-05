@@ -1,5 +1,15 @@
+:root {
+  --header-size-lg: 50px;
+  --header-size-sm: 36px;
+}
+
 .Weather {
   margin-top: 30px;
+}
+
+.Weather .row,
+.Weather .col-sm {
+  padding: 0;
 }
 
 .WeatherInfo {
@@ -8,6 +18,7 @@
 
 .Weather .form-styler {
   margin-bottom: 40px;
+  padding: 0;
 }
 
 .Weather .search-bar {
@@ -26,7 +37,7 @@
   background-color: lightgray;
 }
 
-.Weather .current-btn {
+.Weather .unit-btn {
   margin-left: 6px;
 }
 
@@ -41,13 +52,14 @@
 
 .Weather .city {
   font-weight: 200;
-  font-size: 60px;
+  font-size: var(--header-size-lg);
   text-transform: capitalize;
   padding-bottom: 20px;
 }
 
 .Weather .humid-wind {
   text-align: right;
+  padding-top: 16px;
 }
 
 .Weather .date-time {
@@ -61,21 +73,61 @@
   justify-content: flex-end;
 }
 
-.Weather .temp-main .active {
-  font-weight: 400;
-  cursor: default;
-  color: #3f474d;
-}
-
-.Weather .temperature {
+.WeatherTemperature {
   font-weight: 200;
   text-align: right;
-  font-size: 60px;
-  padding: none;
-  padding: 0 10px 0 20px;
+  font-size: var(--header-size-lg);
+  padding: 0 0 0 20px;
 }
 
-.Weather .temp-units {
-  display: flex;
-  justify-content: flex-start;
+@media (max-width: 576px) {
+  body {
+    margin: 50px auto;
+    width: 80%;
+  }
+
+  .Weather .form-styler {
+    margin-bottom: 0;
+  }
+
+  .Weather .unit-link {
+    border: none;
+    text-decoration: underline;
+    margin: 6px 0 30px 6px;
+    padding: 0;
+    font-size: 15px;
+    opacity: 70%;
+  }
+
+  .Weather .unit-link:hover {
+    background-color: none;
+  }
+
+  .WeatherInfo .city {
+    padding-bottom: 0;
+    font-size: var(--header-size-sm);
+  }
+
+  hr {
+    margin: 40px auto;
+  }
+
+  .WeatherInfo .date-time {
+    padding-top: 0;
+    margin-left: 12px;
+  }
+
+  .WeatherInfo .temp-main {
+    margin: 40px auto 0;
+  }
+
+  .WeatherInfo .humid-temp {
+    padding: 0;
+  }
+
+  .Weather .forecast-heading {
+    font-size: var(--header-size-sm);
+    text-align: center;
+    font-weight: 100;
+  }
 }
