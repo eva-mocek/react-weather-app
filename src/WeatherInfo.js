@@ -2,6 +2,7 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 import FormattedDateTime from "./FormattedDateTime";
 import WeatherTemperature from "./WeatherTemperature";
+import WindSpeed from "./WindSpeed";
 
 export default function WeatherInfo(props) {
   return (
@@ -20,8 +21,12 @@ export default function WeatherInfo(props) {
           <br />
           Humidity: {props.data.humidity}%
           <br />
-          Wind Speed: {props.data.wind}{" "}
-          <span className="text-lowercase">km/hr </span>
+          Wind Speed:{" "}
+          <WindSpeed
+            units={props.data.units}
+            metricSpeed={props.data.windMetric}
+            imperialSpeed={props.data.windImperial}
+          />
         </div>
       </div>
       <div className="row">
@@ -32,7 +37,7 @@ export default function WeatherInfo(props) {
           <div className="temp-main">
             <WeatherIcon code={props.data.iconCode} size={64} />
             <WeatherTemperature
-              unit={props.data.unit}
+              units={props.data.units}
               celsius={props.data.celsius}
               fahrenheit={props.data.fahrenheit}
             />
@@ -44,8 +49,12 @@ export default function WeatherInfo(props) {
             <br />
             Humidity: {props.data.humidity}%
             <br />
-            Wind Speed: {props.data.wind}{" "}
-            <span className="text-lowercase">km/hr </span>
+            Wind Speed:{" "}
+            <WindSpeed
+              units={props.data.units}
+              metricSpeed={props.data.windMetric}
+              imperialSpeed={props.data.windImperial}
+            />
           </div>
         </div>
       </div>

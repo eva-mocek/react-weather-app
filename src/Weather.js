@@ -8,7 +8,6 @@ import Forecast from "./Forecast";
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [forecastUnits, setForecastUnits] = useState("metric");
 
   function handleResponse(response) {
     setWeatherData({
@@ -16,9 +15,9 @@ export default function Weather(props) {
       name: response.data.name,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      wind: Math.round(response.data.wind.speed),
+      windMetric: Math.round(response.data.wind.speed),
+      windImperial: Math.round(response.data.wind.speed / 1.609),
       date: new Date(response.data.dt * 1000),
-      unit: "celsius",
       units: "metric",
       celsius: Math.round(response.data.main.temp),
       fahrenheit: Math.round((response.data.main.temp * 9) / 5 + 32),
@@ -44,20 +43,20 @@ export default function Weather(props) {
 
   function changeUnits(event) {
     event.preventDefault();
-    if (weatherData.unit === "celsius") {
+    if (weatherData.units === "metric") {
       const newData = {
         ...weatherData,
-        unit: "fahrenheit",
+
+        units: "imperial",
       };
       setWeatherData(newData);
-      setForecastUnits("imperial");
     } else {
       const newData = {
         ...weatherData,
-        unit: "celsius",
+
+        units: "metric",
       };
       setWeatherData(newData);
-      setForecastUnits("metric");
     }
   }
 
@@ -84,7 +83,6 @@ export default function Weather(props) {
             onClick={changeUnits}
           />
         </form>
-
         <input
           type="submit"
           value="Change units"
@@ -95,7 +93,7 @@ export default function Weather(props) {
         <WeatherInfo data={weatherData} />
         <hr />
         <div className="forecast-heading d-block d-sm-none">Forecast</div>
-        <Forecast name={weatherData.name} units={forecastUnits} />
+        <Forecast name={weatherData.name} units={weatherData.units} />
       </div>
     );
   } else {
